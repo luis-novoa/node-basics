@@ -4,8 +4,10 @@
 	"description": "Learning!",
 	"keywords": [
 		"interesting",
-		"first time"
+		"first time",
+		"freecodecamp"
 	],
+	"license": "MIT",
 	"dependencies": {
 		"express": "^4.14.0"
 	},
