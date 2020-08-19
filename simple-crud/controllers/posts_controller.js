@@ -1,6 +1,4 @@
-const { response } = require("express");
-
-const connection = request('../db/connection');
+const connection = require('../db/connection');
 const controller = {};
 
 controller.index = async (req, res) => {
@@ -11,18 +9,15 @@ controller.index = async (req, res) => {
 
 controller.create = async (req, res) => {
   const { content } = req.body;
-  await connection('posts').insert({ content });
+  await connection('posts').insert({ content: content });
 
-  return response.json({ success: 'Post created' });
+  return res.json({ success: 'Post created' });
 };
 
 controller.show = async (req, res) => {
-  const { id, content } = await connection('posts').where('id', req.params.id);
+  const post = await connection('posts').where('id', req.params.id);
 
-  return res.json({
-    id: id,
-    content: content
-  });
+  return res.json(post);
 };
 
 controller.update = async (req, res) => {
