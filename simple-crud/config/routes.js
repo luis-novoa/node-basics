@@ -6,6 +6,6 @@ routes.get('/posts', postsController.index);
 routes.post('/posts', postsController.create);
 routes.get('/posts/:id', postsController.show);
 routes.put('/posts/:id', postsController.update);
-routes.delete('/posts/:id', postsController.delete);
+routes.delete('/posts/:id', postsController.destroy);
 
 module.exports = routes;
