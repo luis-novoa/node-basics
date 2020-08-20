@@ -1,5 +1,4 @@
-const graphql = require('graphql');
-const { GraphQLObjectType, GraphQLString, GraphQLInt } = graphql;
+const { GraphQLObjectType, GraphQLString, GraphQLInt } = require('graphql');
 
 const PostType = new GraphQLObjectType({
   name: 'Post',
