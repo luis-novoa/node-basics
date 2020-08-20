@@ -1,0 +1,14 @@
+{
+  "name": "typescript-basics",
+  "version": "1.0.0",
+  "description": "Project to learn typescript and create a complex CRUD",
+  "main": "index.js",
+  "scripts": {
+    "tsc": "tsc"
+  },
+  "author": "Luis Novoa",
+  "license": "MIT",
+  "dependencies": {
+    "typescript": "^4.0.2"
+  }
+}
