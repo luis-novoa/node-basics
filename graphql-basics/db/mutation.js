@@ -1,12 +1,13 @@
 const { PostType } = require('./types.js');
 const { GraphQLObjectType, GraphQLID, GraphQLString } = require('graphql');
+const postsController = require('../controllers/posts_controller');
 
 const RootMutation = new GraphQLObjectType({
   name: 'RootMutationType',
   type: 'Mutation',
   fields: {
     createPost: {
-      type: PostType,
+      type: GraphQLString,
       args: {
         content: { type: GraphQLString }
       },

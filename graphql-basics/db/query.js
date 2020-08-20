@@ -1,5 +1,6 @@
 const { PostType } = require('./types.js');
 const { GraphQLObjectType, GraphQLID } = require('graphql');
+const postsController = require('../controllers/posts_controller');
 
 const RootQuery = new GraphQLObjectType({
   name: 'RootQueryType',
