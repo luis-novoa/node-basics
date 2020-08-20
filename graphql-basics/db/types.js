@@ -1,4 +1,4 @@
-const { GraphQLObjectType, GraphQLString, GraphQLInt } = require('graphql');
+const { GraphQLObjectType, GraphQLInputObjectType, GraphQLString, GraphQLInt } = require('graphql');
 
 const PostType = new GraphQLObjectType({
   name: 'Post',
@@ -9,4 +9,13 @@ const PostType = new GraphQLObjectType({
   }
 });
 
+const CreatePostInput = new GraphQLInputObjectType({
+  name: 'CreatePostInput',
+  fields: {
+    id: { type: GraphQLInt },
+    content: { type: GraphQLString }
+  }
+});
+
 exports.PostType = PostType;
+exports.CreatePostInput = CreatePostInput;

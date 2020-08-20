@@ -1,10 +1,8 @@
 const connection = require('../db/connection');
 const controller = {};
 
-controller.index = async (req, res) => {
-  const posts = await connection('posts').select('*');
-
-  return res.json(posts);
+controller.index = async () => {
+  return await connection('posts').select('*');
 };
 
 controller.create = async (parentValue, args) => {
@@ -13,21 +11,20 @@ controller.create = async (parentValue, args) => {
   return 'Post created!';
 };
 
-controller.show = async (req, res) => {
-  const post = await connection('posts').where('id', req.params.id);
-
-  return res.json(post);
+controller.show = async (parentValue, args) => {
+  return await connection('posts').where('id', args.id).first();
 };
 
-controller.update = async (req, res) => {
-  const { content } = req.body;
-  await connection('posts').where('id', req.params.id).update({ content: content });
-  return res.json({ success: 'Post updated' });
+controller.update = async (parentValue, args) => {
+  await connection('posts').where('id', args.input.id).update({ content: args.input.content });
+
+  return 'Post updated!';
 };
 
-controller.destroy = async (req, res) => {
-  await connection('posts').where('id', req.params.id).del();
-  return res.json({ success: 'Post deleted' });
+controller.destroy = async (parentValue, args) => {
+  await connection('posts').where('id', args.id).del();
+
+  return 'Post deleted!';
 };
 
 module.exports = controller;

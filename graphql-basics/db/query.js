@@ -1,5 +1,5 @@
 const { PostType } = require('./types.js');
-const { GraphQLObjectType, GraphQLID } = require('graphql');
+const { GraphQLObjectType, GraphQLID, GraphQLList } = require('graphql');
 const postsController = require('../controllers/posts_controller');
 
 const RootQuery = new GraphQLObjectType({
@@ -12,8 +12,7 @@ const RootQuery = new GraphQLObjectType({
       resolve: postsController.show
     },
     posts: {
-      type: PostType,
-      args: { id: { type: GraphQLID } },
+      type: GraphQLList(PostType),
       resolve: postsController.index
     }
   }

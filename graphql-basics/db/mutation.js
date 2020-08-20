@@ -1,5 +1,5 @@
-const { PostType } = require('./types.js');
-const { GraphQLObjectType, GraphQLID, GraphQLString } = require('graphql');
+const { CreatePostInput } = require('./types.js');
+const { GraphQLObjectType, GraphQLID, GraphQLString, GraphQLNonNull } = require('graphql');
 const postsController = require('../controllers/posts_controller');
 
 const RootMutation = new GraphQLObjectType({
@@ -14,15 +14,14 @@ const RootMutation = new GraphQLObjectType({
       resolve: postsController.create
     },
     updatePost: {
-      type: PostType,
+      type: GraphQLString,
       args: {
-        id: { type: GraphQLID },
-        content: { type: GraphQLString }
+        input: { type: new GraphQLNonNull(CreatePostInput) }
       },
       resolve: postsController.update
     },
     destroyPost: {
-      type: PostType,
+      type: GraphQLString,
       args: {
         id: { type: GraphQLID }
       },
