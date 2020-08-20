@@ -1,0 +1,23 @@
+{
+  "name": "graphql-basics",
+  "version": "1.0.0",
+  "description": "Little project to learn graphql.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "graphql",
+    "javascript",
+    "node"
+  ],
+  "author": "Luis Novoa",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-graphql": "^0.11.0",
+    "graphql": "^15.3.0",
+    "knex": "^0.21.5",
+    "pg": "^8.3.2"
+  }
+}
